@@ -1,380 +1,520 @@
-export default function HomePage() {
-  const services = [
-    "Wooden Tableware Collections",
-    "Raffia & Natural Fiber Décor",
-    "Durable & Distinctive Creations",
-  ];
-
-  const approach = [
+export default function App() {
+  const featured = [
     {
-      title: "Creative Consultation",
-      text: "We begin with an in-depth dialogue to understand your vision, your space, and the atmosphere you want to create.",
+      title: "Signature Piece",
+      description:
+        "A refined handcrafted creation designed to bring warmth, texture, and quiet sophistication into curated interiors.",
     },
     {
-      title: "Concept Exploration",
-      text: "We propose refined aesthetic directions and concepts to identify the most relevant and inspiring solution for your project.",
+      title: "Natural Texture Series",
+      description:
+        "A collection inspired by raw beauty, organic forms, and balanced tones that elevate modern and timeless spaces.",
     },
     {
-      title: "Personal Follow-Up",
-      text: "From concept to final piece, we ensure close collaboration at every stage to deliver a result aligned with your expectations.",
+      title: "Custom Interior Accent",
+      description:
+        "Bespoke decorative pieces imagined to complement your atmosphere, palette, and personal aesthetic.",
     },
   ];
 
-  const customPoints = [
-    "Made-to-measure design",
-    "Flexible dimensions & forms",
-    "Material & color customization",
-    "Integration of your visual identity",
-  ];
-
-  const benefits = [
+  const creations = [
     {
-      title: "Exceptional Craftsmanship",
-      text: "Each piece is handmade by skilled artisans with years of experience and a deep commitment to quality.",
+      title: "Decor Pieces",
+      text: "Elegant handcrafted objects created to enrich homes, offices, and curated spaces with character and artistic presence.",
     },
     {
-      title: "Contemporary Vision",
-      text: "We reinterpret everyday objects through a modern design language rooted in natural materials.",
+      title: "Custom Collections",
+      text: "Exclusive pieces and small collections developed around your preferences, style direction, and desired ambiance.",
     },
     {
-      title: "Distinctive Presence",
-      text: "Our creations are designed for those who seek character, elegance, and refinement.",
-    },
-    {
-      title: "Durability",
-      text: "We select materials for their authenticity, strength, and ability to stand the test of time.",
+      title: "Creative Guidance",
+      text: "A thoughtful approach to selecting shapes, textures, and decorative accents that align beautifully with your vision.",
     },
   ];
-
-  const values = ["Authenticity", "Craftsmanship", "Durability"];
-  const trustedBy = ["Restaurant AFRICAFE", "Improtechnology Ltd Ghana"];
 
   return (
-    <main className="bg-[#f6f1eb] text-[#241f1a]">
-      {/* HERO */}
-      <section className="relative overflow-hidden">
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-20 md:px-10 lg:grid-cols-2 lg:items-center lg:py-28">
+    <div
+      style={{
+        fontFamily: 'Georgia, "Times New Roman", serif',
+        backgroundColor: "#f8f3ec",
+        color: "#1f1a17",
+        margin: 0,
+      }}
+    >
+      <header
+        style={{
+          position: "sticky",
+          top: 0,
+          backgroundColor: "rgba(248, 243, 236, 0.95)",
+          backdropFilter: "blur(8px)",
+          borderBottom: "1px solid #e4d8c8",
+          zIndex: 10,
+        }}
+      >
+        <div
+          style={{
+            maxWidth: "1200px",
+            margin: "0 auto",
+            padding: "22px 28px",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            gap: "20px",
+            flexWrap: "wrap",
+          }}
+        >
           <div>
-            <p className="mb-4 text-sm uppercase tracking-[0.35em] text-[#8a6f55]">
-              Artysia
-            </p>
-            <h1 className="max-w-xl font-serif text-5xl leading-tight md:text-6xl">
-              A Story in Every Piece
-            </h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-[#5b5148]">
-              Artysia creates handcrafted wooden tableware and natural fiber
-              decorative pieces designed to bring character, elegance, and
-              identity into modern spaces.
-            </p>
-
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a
-                href="#story"
-                className="rounded-full bg-[#241f1a] px-6 py-3 text-sm font-medium text-white transition hover:opacity-90"
-              >
-                Discover Our World
-              </a>
-              <a
-                href="#contact"
-                className="rounded-full border border-[#241f1a] px-6 py-3 text-sm font-medium text-[#241f1a] transition hover:bg-[#241f1a] hover:text-white"
-              >
-                Request a Custom Piece
-              </a>
+            <div style={{ fontSize: "34px", letterSpacing: "0.04em" }}>Artysia</div>
+            <div
+              style={{
+                fontFamily: "Arial, sans-serif",
+                fontSize: "13px",
+                color: "#7b6a5d",
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                marginTop: "6px",
+              }}
+            >
+              Handcrafted décor and lifestyle pieces
             </div>
           </div>
 
-          <div className="relative">
-            <div className="absolute -left-6 top-8 hidden h-40 w-40 rounded-[2rem] bg-[#d8c5b1] lg:block" />
-            <img
-              src="/images/hero-artysia.jpg"
-              alt="Artysia handcrafted decorative pieces"
-              className="relative z-10 h-[520px] w-full rounded-[2rem] object-cover shadow-xl"
-            />
-          </div>
+          <nav
+            style={{
+              display: "flex",
+              gap: "22px",
+              flexWrap: "wrap",
+              fontFamily: "Arial, sans-serif",
+              fontSize: "14px",
+            }}
+          >
+            <a href="#about" style={{ color: "#5d4c40", textDecoration: "none" }}>About</a>
+            <a href="#creations" style={{ color: "#5d4c40", textDecoration: "none" }}>Creations</a>
+            <a href="#collection" style={{ color: "#5d4c40", textDecoration: "none" }}>Collection</a>
+            <a href="#contact" style={{ color: "#5d4c40", textDecoration: "none" }}>Contact</a>
+          </nav>
         </div>
-      </section>
+      </header>
 
-      {/* WHAT WE CREATE */}
-      <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">
-        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-          <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-[#8a6f55]">
-              What We Create
-            </p>
-            <h2 className="mt-3 font-serif text-4xl md:text-5xl">
-              Crafted for everyday beauty and meaningful spaces
-            </h2>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#5b5148]">
-              We design and craft refined wooden tableware collections, as well
-              as decorative pieces made from raffia and other natural fibers.
-              Each creation is designed to elevate both everyday living and
-              exceptional hosting moments through timeless aesthetics and
-              enduring quality.
-            </p>
+      <section
+        style={{
+          maxWidth: "1200px",
+          margin: "0 auto",
+          padding: "90px 28px 70px",
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+          gap: "40px",
+          alignItems: "center",
+        }}
+      >
+        <div>
+          <div
+            style={{
+              fontFamily: "Arial, sans-serif",
+              textTransform: "uppercase",
+              letterSpacing: "0.22em",
+              fontSize: "12px",
+              color: "#8a7462",
+              marginBottom: "18px",
+            }}
+          >
+            Crafted elegance
           </div>
-
-          <div className="grid gap-4">
-            {services.map((item) => (
-              <div
-                key={item}
-                className="rounded-[1.5rem] border border-[#e2d7cc] bg-white/70 p-6 shadow-sm"
-              >
-                <p className="text-lg font-medium">{item}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* OUR APPROACH */}
-      <section className="bg-[#efe5db]">
-        <div className="mx-auto max-w-7xl px-6 py-20 md:px-10">
-          <p className="text-sm uppercase tracking-[0.3em] text-[#8a6f55]">
-            Our Approach
+          <h1
+            style={{
+              fontSize: "clamp(42px, 7vw, 76px)",
+              lineHeight: 1.04,
+              fontWeight: 500,
+              margin: "0 0 24px",
+            }}
+          >
+            Timeless pieces designed to elevate beautiful spaces.
+          </h1>
+          <p
+            style={{
+              fontFamily: "Arial, sans-serif",
+              fontSize: "18px",
+              lineHeight: 1.8,
+              color: "#5f5249",
+              maxWidth: "620px",
+              margin: 0,
+            }}
+          >
+            Artysia brings together craftsmanship, softness, and natural inspiration to create décor objects and bespoke collections with a refined, understated luxury.
           </p>
-          <h2 className="mt-3 font-serif text-4xl md:text-5xl">
-            A tailored creative experience
-          </h2>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {approach.map((item) => (
-              <div
-                key={item.title}
-                className="rounded-[1.75rem] bg-white p-8 shadow-sm"
-              >
-                <h3 className="font-serif text-2xl">{item.title}</h3>
-                <p className="mt-4 leading-7 text-[#5b5148]">{item.text}</p>
-              </div>
-            ))}
+          <div
+            style={{
+              display: "flex",
+              gap: "16px",
+              flexWrap: "wrap",
+              marginTop: "34px",
+              fontFamily: "Arial, sans-serif",
+            }}
+          >
+            <a
+              href="#collection"
+              style={{
+                backgroundColor: "#201815",
+                color: "#fff",
+                textDecoration: "none",
+                padding: "14px 24px",
+                borderRadius: "999px",
+                fontSize: "14px",
+                letterSpacing: "0.05em",
+              }}
+            >
+              Discover the Collection
+            </a>
+            <a
+              href="#contact"
+              style={{
+                color: "#201815",
+                textDecoration: "none",
+                padding: "14px 24px",
+                borderRadius: "999px",
+                border: "1px solid #cdb9a7",
+                fontSize: "14px",
+                letterSpacing: "0.05em",
+                backgroundColor: "transparent",
+              }}
+            >
+              Request a Custom Piece
+            </a>
           </div>
         </div>
-      </section>
 
-      {/* CUSTOM PIECES */}
-      <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">
-        <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-          <div>
-            <img
-              src="/images/custom-piece.jpg"
-              alt="Unique customizable Artysia piece"
-              className="h-[500px] w-full rounded-[2rem] object-cover shadow-lg"
-            />
-          </div>
-
-          <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-[#8a6f55]">
-              Custom Design
-            </p>
-            <h2 className="mt-3 font-serif text-4xl md:text-5xl">
-              Unique & Customizable Pieces
-            </h2>
-            <p className="mt-6 text-lg leading-8 text-[#5b5148]">
-              Every Artysia creation is designed to adapt to your world.
-              Dimensions, forms, materials, and colors can be tailored to
-              reflect the identity of your space or brand.
-            </p>
-
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              {customPoints.map((item) => (
-                <div
-                  key={item}
-                  className="rounded-2xl border border-[#e2d7cc] bg-white/70 p-5"
-                >
-                  <p className="font-medium">{item}</p>
-                </div>
-              ))}
+        <div
+          style={{
+            background: "linear-gradient(180deg, #eadfce 0%, #dcc7ad 100%)",
+            borderRadius: "28px",
+            minHeight: "520px",
+            position: "relative",
+            overflow: "hidden",
+            boxShadow: "0 25px 70px rgba(76, 53, 34, 0.14)",
+          }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              inset: "28px",
+              border: "1px solid rgba(255,255,255,0.45)",
+              borderRadius: "24px",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              left: "50%",
+              top: "50%",
+              transform: "translate(-50%, -50%)",
+              width: "72%",
+              height: "72%",
+              backgroundColor: "rgba(255,255,255,0.32)",
+              borderRadius: "26px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              textAlign: "center",
+              padding: "20px",
+            }}
+          >
+            <div>
+              <div
+                style={{
+                  fontSize: "34px",
+                  marginBottom: "14px",
+                }}
+              >
+                Artysia Collection
+              </div>
+              <p
+                style={{
+                  fontFamily: "Arial, sans-serif",
+                  color: "#5f5249",
+                  lineHeight: 1.8,
+                  margin: 0,
+                }}
+              >
+                Replace this visual area with a premium product photo, interior styling image, or hero collection image.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SIGNATURE */}
-      <section className="bg-[#241f1a] text-white">
-        <div className="mx-auto max-w-7xl px-6 py-20 md:px-10">
-          <div className="max-w-4xl">
-            <p className="text-sm uppercase tracking-[0.3em] text-[#d8c5b1]">
-              Signature
-            </p>
-            <h2 className="mt-3 font-serif text-4xl md:text-5xl">
-              A Distinctive Signature
-            </h2>
-            <p className="mt-6 text-lg leading-8 text-[#ddd2c7]">
-              Artysia combines noble materials with precise craftsmanship to
-              create pieces that go beyond functionality. Each creation carries
-              a strong visual identity, transforming everyday objects into
-              collectible design pieces.
-            </p>
-            <p className="mt-8 text-2xl font-semibold text-[#f2e6d7]">
-              Rare pieces for spaces with character.
-            </p>
+      <section
+        id="about"
+        style={{
+          maxWidth: "1100px",
+          margin: "0 auto",
+          padding: "30px 28px 80px",
+        }}
+      >
+        <div
+          style={{
+            backgroundColor: "#fffaf4",
+            border: "1px solid #eadfce",
+            borderRadius: "26px",
+            padding: "42px",
+            boxShadow: "0 16px 50px rgba(76, 53, 34, 0.05)",
+          }}
+        >
+          <div
+            style={{
+              fontFamily: "Arial, sans-serif",
+              fontSize: "12px",
+              textTransform: "uppercase",
+              letterSpacing: "0.2em",
+              color: "#8a7462",
+              marginBottom: "12px",
+            }}
+          >
+            About Artysia
           </div>
+          <h2 style={{ fontSize: "42px", margin: "0 0 16px", fontWeight: 500 }}>
+            Where craftsmanship meets quiet luxury.
+          </h2>
+          <p
+            style={{
+              fontFamily: "Arial, sans-serif",
+              lineHeight: 1.9,
+              fontSize: "17px",
+              color: "#5f5249",
+              maxWidth: "900px",
+              margin: 0,
+            }}
+          >
+            Artysia is a creative brand dedicated to handcrafted décor and lifestyle pieces. Each creation is imagined to bring depth, warmth, and elegance into a space, with an emphasis on natural beauty, thoughtful detail, and timeless aesthetic value.
+          </p>
         </div>
       </section>
 
-      {/* WHY ARTYSIA */}
-      <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">
-        <p className="text-sm uppercase tracking-[0.3em] text-[#8a6f55]">
-          Why Artysia
-        </p>
-        <h2 className="mt-3 font-serif text-4xl md:text-5xl">
-          Why Work With Us
-        </h2>
+      <section
+        id="creations"
+        style={{
+          maxWidth: "1200px",
+          margin: "0 auto",
+          padding: "0 28px 80px",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            gap: "20px",
+            alignItems: "end",
+            marginBottom: "28px",
+            flexWrap: "wrap",
+          }}
+        >
+          <div>
+            <div
+              style={{
+                fontFamily: "Arial, sans-serif",
+                fontSize: "12px",
+                textTransform: "uppercase",
+                letterSpacing: "0.2em",
+                color: "#8a7462",
+                marginBottom: "10px",
+              }}
+            >
+              Our creations
+            </div>
+            <h2 style={{ fontSize: "40px", margin: 0, fontWeight: 500 }}>
+              Designed with intention and distinction.
+            </h2>
+          </div>
+        </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {benefits.map((item) => (
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+            gap: "22px",
+          }}
+        >
+          {creations.map((item) => (
             <div
               key={item.title}
-              className="rounded-[1.75rem] border border-[#e2d7cc] bg-white p-8 shadow-sm"
+              style={{
+                backgroundColor: "#fffaf4",
+                border: "1px solid #eadfce",
+                borderRadius: "22px",
+                padding: "28px",
+                boxShadow: "0 14px 38px rgba(76, 53, 34, 0.05)",
+              }}
             >
-              <h3 className="font-serif text-2xl">{item.title}</h3>
-              <p className="mt-4 leading-7 text-[#5b5148]">{item.text}</p>
+              <h3 style={{ fontSize: "28px", fontWeight: 500, margin: "0 0 14px" }}>{item.title}</h3>
+              <p
+                style={{
+                  fontFamily: "Arial, sans-serif",
+                  color: "#5f5249",
+                  lineHeight: 1.8,
+                  margin: 0,
+                }}
+              >
+                {item.text}
+              </p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* STORY */}
-      <section id="story" className="bg-[#efe5db]">
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-20 md:px-10 lg:grid-cols-2 lg:items-center">
-          <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-[#8a6f55]">
-              Our Story
-            </p>
-            <h2 className="mt-3 font-serif text-4xl md:text-5xl">
-              Design that remembers where it comes from
-            </h2>
-            <div className="mt-6 space-y-5 text-lg leading-8 text-[#5b5148]">
-              <p>
-                Artysia was born from a simple observation: as our cities
-                modernize, our spaces increasingly begin to look alike.
-              </p>
-              <p>
-                Across different places, the identity of spaces is slowly
-                fading, replaced by standardized aesthetics.
-              </p>
-              <p>
-                Artysia was created to offer something different — objects that
-                feel rooted, yet contemporary.
-              </p>
-              <p>
-                We work with wood, raffia, and natural fibers to create pieces
-                that do not imitate, but express.
-              </p>
-              <p>
-                Our approach is to bring back identity into the spaces we live
-                in, through design that is modern, meaningful, and deeply
-                connected to its origins.
-              </p>
-            </div>
+      <section
+        id="collection"
+        style={{
+          backgroundColor: "#efe4d6",
+          padding: "84px 28px",
+        }}
+      >
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div
+            style={{
+              fontFamily: "Arial, sans-serif",
+              fontSize: "12px",
+              textTransform: "uppercase",
+              letterSpacing: "0.2em",
+              color: "#8a7462",
+              marginBottom: "10px",
+            }}
+          >
+            Featured collection
           </div>
-
-          <div>
-            <img
-              src="/images/story-artysia.jpg"
-              alt="Artysia woven design story"
-              className="h-[560px] w-full rounded-[2rem] object-cover shadow-lg"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* MISSION & VALUES */}
-      <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">
-        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="rounded-[2rem] bg-white p-10 shadow-sm">
-            <p className="text-sm uppercase tracking-[0.3em] text-[#8a6f55]">
-              Our Mission
-            </p>
-            <h2 className="mt-3 font-serif text-4xl">
-              Timeless essentials where elegance, refinement, and functionality
-              meet
-            </h2>
-          </div>
-
-          <div className="rounded-[2rem] border border-[#e2d7cc] bg-[#faf7f3] p-10">
-            <p className="text-sm uppercase tracking-[0.3em] text-[#8a6f55]">
-              Our Values
-            </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              {values.map((value) => (
-                <span
-                  key={value}
-                  className="rounded-full border border-[#cdb9a5] px-5 py-2 text-sm font-medium"
-                >
-                  {value}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* TRUSTED BY */}
-      <section className="bg-[#efe5db]">
-        <div className="mx-auto max-w-7xl px-6 py-20 md:px-10">
-          <p className="text-sm uppercase tracking-[0.3em] text-[#8a6f55]">
-            Trusted By
-          </p>
-          <h2 className="mt-3 font-serif text-4xl md:text-5xl">
-            Brands and spaces that trusted our vision
+          <h2 style={{ fontSize: "42px", margin: "0 0 28px", fontWeight: 500 }}>
+            Signature expressions of texture, form, and beauty.
           </h2>
 
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
-            {trustedBy.map((client) => (
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+              gap: "24px",
+            }}
+          >
+            {featured.map((item) => (
               <div
-                key={client}
-                className="rounded-[1.75rem] bg-white p-8 text-xl shadow-sm"
+                key={item.title}
+                style={{
+                  backgroundColor: "#fffaf4",
+                  borderRadius: "24px",
+                  overflow: "hidden",
+                  boxShadow: "0 18px 40px rgba(76, 53, 34, 0.09)",
+                }}
               >
-                {client}
+                <div
+                  style={{
+                    height: "250px",
+                    background: "linear-gradient(180deg, #d6c1ab 0%, #b99773 100%)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "rgba(255,255,255,0.85)",
+                    fontFamily: "Arial, sans-serif",
+                    letterSpacing: "0.15em",
+                    textTransform: "uppercase",
+                    fontSize: "12px",
+                  }}
+                >
+                  Product Image
+                </div>
+                <div style={{ padding: "26px" }}>
+                  <h3 style={{ fontSize: "28px", margin: "0 0 12px", fontWeight: 500 }}>{item.title}</h3>
+                  <p
+                    style={{
+                      fontFamily: "Arial, sans-serif",
+                      color: "#5f5249",
+                      lineHeight: 1.8,
+                      margin: 0,
+                    }}
+                  >
+                    {item.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FINAL CTA */}
-      <section id="contact" className="mx-auto max-w-7xl px-6 py-20 md:px-10">
-        <div className="rounded-[2.5rem] bg-[#241f1a] px-8 py-14 text-white md:px-14">
-          <p className="text-sm uppercase tracking-[0.3em] text-[#d8c5b1]">
-            Contact
-          </p>
-          <h2 className="mt-3 max-w-3xl font-serif text-4xl md:text-5xl">
-            Let’s create something meaningful
+      <section
+        id="contact"
+        style={{
+          maxWidth: "1100px",
+          margin: "0 auto",
+          padding: "84px 28px",
+        }}
+      >
+        <div
+          style={{
+            backgroundColor: "#201815",
+            color: "#f7efe6",
+            borderRadius: "28px",
+            padding: "44px",
+            boxShadow: "0 24px 60px rgba(28, 20, 17, 0.18)",
+          }}
+        >
+          <div
+            style={{
+              fontFamily: "Arial, sans-serif",
+              fontSize: "12px",
+              textTransform: "uppercase",
+              letterSpacing: "0.2em",
+              color: "#d9bea4",
+              marginBottom: "10px",
+            }}
+          >
+            Get in touch
+          </div>
+          <h2 style={{ fontSize: "42px", margin: "0 0 16px", fontWeight: 500 }}>
+            Let’s create something beautifully distinctive.
           </h2>
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-[#ddd2c7]">
-            Whether you are looking for a statement piece, a refined collection,
-            or a fully customized design, Artysia is ready to bring your vision
-            to life.
+          <p
+            style={{
+              fontFamily: "Arial, sans-serif",
+              color: "#e6d8ca",
+              lineHeight: 1.9,
+              maxWidth: "760px",
+              margin: "0 0 28px",
+            }}
+          >
+            Connect with Artysia for product inquiries, custom-made requests, collaborations, and collection information.
           </p>
-
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="https://wa.me/XXXXXXXXXXX"
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full bg-white px-6 py-3 text-sm font-medium text-[#241f1a] transition hover:opacity-90"
-            >
-              Request a Custom Piece
-            </a>
-            <a
-              href="mailto:contact@artysiahome.com"
-              className="rounded-full border border-white px-6 py-3 text-sm font-medium text-white transition hover:bg-white hover:text-[#241f1a]"
-            >
-              Contact Us
-            </a>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+              gap: "18px",
+              fontFamily: "Arial, sans-serif",
+            }}
+          >
+            <div>
+              <div style={{ color: "#d9bea4", marginBottom: "6px" }}>Email</div>
+              <div>contact@artysia.com</div>
+            </div>
+            <div>
+              <div style={{ color: "#d9bea4", marginBottom: "6px" }}>Phone</div>
+              <div>+233 XX XXX XXXX</div>
+            </div>
+            <div>
+              <div style={{ color: "#d9bea4", marginBottom: "6px" }}>Location</div>
+              <div>Accra, Ghana</div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* WHATSAPP FLOATING BUTTON */}
-      <a
-        href="https://wa.me/XXXXXXXXXXX"
-        target="_blank"
-        rel="noreferrer"
-        className="fixed bottom-6 right-6 rounded-full bg-[#241f1a] px-5 py-3 text-sm font-medium text-white shadow-lg transition hover:opacity-90"
+      <footer
+        style={{
+          borderTop: "1px solid #e4d8c8",
+          padding: "24px 28px 40px",
+          textAlign: "center",
+          fontFamily: "Arial, sans-serif",
+          color: "#7b6a5d",
+          fontSize: "14px",
+        }}
       >
-        Chat with us on WhatsApp
-      </a>
-    </main>
+        © 2026 Artysia. All rights reserved.
+      </footer>
+    </div>
   );
 }
