@@ -20,6 +20,12 @@ const collections = [
 
 const steps = ['Consultation', 'Creative direction', 'Material selection', 'Production follow-up'];
 
+const socialLinks = [
+  { name: 'Instagram', href: 'https://www.instagram.com/artysiahome?igsh=MXRpejA3Mng5a2RiNA==' },
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/company/artysia/' },
+  { name: 'Facebook', href: 'https://www.facebook.com/share/18vY7otHsD/' },
+];
+
 function App() {
   return (
     <main className="site">
@@ -30,6 +36,7 @@ function App() {
         <nav className="nav" aria-label="Main navigation">
           <a href="#collections">Collections</a>
           <a href="#approach">Approach</a>
+          <a href="#socials">Platforms</a>
           <a href="#contact">Contact</a>
         </nav>
       </header>
@@ -115,6 +122,22 @@ function App() {
         </div>
       </section>
 
+      <section id="socials" className="socials section-shell">
+        <div>
+          <p className="eyebrow">Platforms</p>
+          <h2>Follow ARTYSIA across our digital spaces.</h2>
+        </div>
+        <div className="social-grid">
+          {socialLinks.map((link) => (
+            <a className="social-card" href={link.href} target="_blank" rel="noreferrer" key={link.name}>
+              <span>{link.name.slice(0, 2)}</span>
+              <strong>{link.name}</strong>
+              <small>Open platform</small>
+            </a>
+          ))}
+        </div>
+      </section>
+
       <section id="contact" className="contact section-shell">
         <div className="contact-card">
           <p className="eyebrow">Contact</p>
@@ -132,6 +155,11 @@ function App() {
 
       <footer className="footer">
         <img src="/ARTYSIA.png" alt="ARTYSIA" />
+        <div className="footer-socials" aria-label="ARTYSIA social platforms">
+          {socialLinks.map((link) => (
+            <a href={link.href} target="_blank" rel="noreferrer" key={link.name}>{link.name}</a>
+          ))}
+        </div>
         <p>Premium natural objects for refined spaces.</p>
       </footer>
     </main>
