@@ -29,7 +29,7 @@ function App() {
         <video className="hero-video" src="/artysia-hero.mp4" autoPlay muted loop playsInline />
         <div className="hero-overlay" />
         <div className="hero-content">
-          <img src="/ARTYSIA.png" alt="ARTYSIA" />
+          <div className="hero-logo-wrap"><img src="/ARTYSIA.png" alt="ARTYSIA" /></div>
           <p>Refined tableware, natural décor and bespoke creations.</p>
           <h1>Crafted for spaces with soul.</h1>
           <a href="#collections">Explore collection</a>
