@@ -1,166 +1,91 @@
 import './App.css';
 
+const nav = ['Our Story', 'Tableware', 'Decor', 'Projects', 'Process', 'Contact'];
+
 const collections = [
-  {
-    name: 'Wooden tableware',
-    text: 'Bowls, trays and dining pieces shaped to bring warmth, depth and quiet luxury to the table.',
-    accent: 'cyan',
-  },
-  {
-    name: 'Raffia & natural fibers',
-    text: 'Textural decorative objects for hotels, residences and spaces that need a strong natural identity.',
-    accent: 'olive',
-  },
-  {
-    name: 'Bespoke pieces',
-    text: 'Custom dimensions, finishes and creative directions developed around the atmosphere of your project.',
-    accent: 'terracotta',
-  },
+  { title: 'Wooden Tableware', subtitle: 'Bowls, trays, serving pieces and dining accents crafted for warm, refined tables.', tone: 'cyan' },
+  { title: 'Raffia & Natural Fibers', subtitle: 'Wall decor, baskets, lampshades and textured objects for interiors with identity.', tone: 'olive' },
+  { title: 'Bespoke Projects', subtitle: 'Custom pieces for homes, restaurants, hotels and curated spaces.', tone: 'rust' },
 ];
 
-const steps = ['Consultation', 'Creative direction', 'Material selection', 'Production follow-up'];
+const values = [
+  ['Made with intention', 'Every piece is designed around material, purpose and atmosphere.'],
+  ['Made for interiors', 'Objects that elevate hospitality, residential and lifestyle spaces.'],
+  ['Made together', 'A collaborative process from creative direction to final piece.'],
+];
 
-const socialLinks = [
+const products = ['Statement bowls', 'Serving trays', 'Raffia wall pieces', 'Decorative baskets', 'Natural fiber lamps', 'Custom hotel pieces'];
+
+const socials = [
   { name: 'Instagram', href: 'https://www.instagram.com/artysiahome?igsh=MXRpejA3Mng5a2RiNA==' },
   { name: 'LinkedIn', href: 'https://www.linkedin.com/company/artysia/' },
   { name: 'Facebook', href: 'https://www.facebook.com/share/18vY7otHsD/' },
 ];
 
+function LeafMark() {
+  return <div className="leafmark"><i /><i /><i /><i /><i /></div>;
+}
+
 function App() {
   return (
-    <main className="site">
+    <main className="site" id="top">
       <header className="header">
-        <a className="logo-wrap" href="#top" aria-label="ARTYSIA home">
-          <img src="/ARTYSIA.png" alt="ARTYSIA logo" />
-        </a>
-        <nav className="nav" aria-label="Main navigation">
-          <a href="#collections">Collections</a>
-          <a href="#approach">Approach</a>
-          <a href="#socials">Platforms</a>
-          <a href="#contact">Contact</a>
-        </nav>
+        <a href="#top" className="brand" aria-label="ARTYSIA home"><img src="/ARTYSIA.png" alt="ARTYSIA" /></a>
+        <nav>{nav.map((item) => <a href={`#${item.toLowerCase().replaceAll(' ', '-')}`} key={item}>{item}</a>)}</nav>
       </header>
 
-      <section id="top" className="hero section-shell">
-        <div className="hero-copy">
-          <p className="eyebrow">Wood • Raffia • Natural fibers</p>
-          <h1>Objects with soul for refined interiors.</h1>
-          <p className="lead">
-            ARTYSIA designs premium wooden tableware and decorative pieces in natural fibers for homes,
-            hotels, restaurants and curated spaces.
-          </p>
-          <div className="actions">
-            <a className="btn primary" href="#contact">Start a project</a>
-            <a className="btn secondary" href="#collections">Explore the work</a>
-          </div>
-        </div>
+      <section className="hero">
+        <div className="hero-frame hero-one"><p>WELCOME TO</p><h1>ARTYSIA</h1></div>
+        <div className="hero-frame hero-two"><p>NATURAL</p><h2>OBJECTS</h2></div>
+        <div className="hero-frame hero-three"><p>WOOD • RAFFIA • FIBERS</p><h2>CREATE YOURS</h2></div>
+        <div className="hero-marquee"><span>ARTYSIA</span><span>TABLEWARE</span><span>DECOR</span><span>BESPOKE</span></div>
+      </section>
 
-        <div className="visual-card" aria-label="ARTYSIA color identity">
-          <div className="leaf leaf-cyan" />
-          <div className="leaf leaf-rust" />
-          <div className="leaf leaf-olive" />
-          <div className="leaf leaf-coral" />
-          <div className="leaf leaf-orange" />
-          <div className="visual-text">
-            <span>Signature palette</span>
-            <strong>vivid, natural, premium</strong>
-          </div>
+      <section id="our-story" className="story section">
+        <div className="story-title"><p className="kicker">A refined natural home</p><h2>Premium tableware and decor made for spaces with soul.</h2></div>
+        <div className="story-text">
+          <p>ARTYSIA is a design house specialized in wooden tableware, raffia objects and natural fiber decoration. We create pieces that bring warmth, elegance and identity to homes, hotels, restaurants and curated interiors.</p>
+          <p>Inspired by the Bonobo-style layout, this version is more editorial, image-led and catalogue-ready, while keeping ARTYSIA’s own colors, logo and premium direction.</p>
         </div>
       </section>
 
-      <section className="intro section-shell">
-        <p className="statement">
-          We create pieces that make a space feel intentional: elegant, grounded, contemporary and connected
-          to natural materials.
-        </p>
+      <section id="tableware" className="collection-feature section">
+        <div className="big-card wood"><LeafMark /><p>WOODEN TABLEWARE</p><h2>Timeless pieces for memorable tables.</h2></div>
+        <div className="side-copy"><p className="kicker">Collection</p><h3>From everyday rituals to hospitality presentation.</h3><p>Bowls, trays and serving objects designed with a strong natural presence and a clean contemporary finish.</p><a href="#contact">Start a tableware project</a></div>
       </section>
 
-      <section id="collections" className="section-shell split-section">
-        <div>
-          <p className="eyebrow">Collections</p>
-          <h2>Designed for presence, made for everyday beauty.</h2>
-        </div>
-        <div className="collection-grid">
-          {collections.map((item) => (
-            <article className={`collection-card ${item.accent}`} key={item.name}>
-              <span />
-              <h3>{item.name}</h3>
-              <p>{item.text}</p>
-            </article>
-          ))}
-        </div>
+      <section id="decor" className="cards section">
+        {collections.map((item) => <article className={`card ${item.tone}`} key={item.title}><span /> <h3>{item.title}</h3><p>{item.subtitle}</p></article>)}
       </section>
 
-      <section id="approach" className="approach">
-        <div className="section-shell approach-inner">
-          <p className="eyebrow light">Our approach</p>
-          <h2>A tailored creative process for distinctive projects.</h2>
-          <div className="steps">
-            {steps.map((step, index) => (
-              <div className="step" key={step}>
-                <span>{String(index + 1).padStart(2, '0')}</span>
-                <p>{step}</p>
-              </div>
-            ))}
-          </div>
+      <section className="values-section section">
+        <h2>ARTISANAL VALUE</h2>
+        <div className="values-grid">{values.map(([title, text]) => <div className="value" key={title}><h3>{title}</h3><p>{text}</p></div>)}</div>
+      </section>
+
+      <section id="projects" className="portfolio section">
+        <div><p className="kicker">Where material meets creativity</p><h2>Explore pieces for interiors, hospitality and special projects.</h2></div>
+        <div className="product-grid">{products.map((p) => <div className="product" key={p}><LeafMark /><strong>{p}</strong></div>)}</div>
+      </section>
+
+      <section id="process" className="order section">
+        <h2>How to place an order?</h2>
+        <div className="order-grid">
+          <p><strong>Pick a direction:</strong> choose from our tableware, decor or social media references.</p>
+          <p><strong>Get creative:</strong> share dimensions, colors, mood and the atmosphere you want.</p>
+          <p><strong>Create together:</strong> we align the design, materials and finish before production.</p>
         </div>
       </section>
 
-      <section className="section-shell values">
-        <div className="value-panel dark">
-          <p className="eyebrow">Mission</p>
-          <h2>To create timeless essential pieces where elegance, refinement and functionality meet.</h2>
-        </div>
-        <div className="value-panel light-panel">
-          <p className="eyebrow">Values</p>
-          <div className="tags">
-            <span>Authenticity</span>
-            <span>Craftsmanship</span>
-            <span>Durability</span>
-            <span>Identity</span>
-          </div>
-        </div>
+      <section id="contact" className="contact section">
+        <div><h2>Looking for something personalized?</h2><p>Tell us about your space, project or collection.</p></div>
+        <div className="contact-actions"><a href="https://wa.me/233536939571" target="_blank" rel="noreferrer">WhatsApp</a><a href="mailto:contact@artysiahome.com">Email</a></div>
       </section>
 
-      <section id="socials" className="socials section-shell">
-        <div>
-          <p className="eyebrow">Platforms</p>
-          <h2>Follow ARTYSIA across our digital spaces.</h2>
-        </div>
-        <div className="social-grid">
-          {socialLinks.map((link) => (
-            <a className="social-card" href={link.href} target="_blank" rel="noreferrer" key={link.name}>
-              <span>{link.name.slice(0, 2)}</span>
-              <strong>{link.name}</strong>
-              <small>Open platform</small>
-            </a>
-          ))}
-        </div>
-      </section>
-
-      <section id="contact" className="contact section-shell">
-        <div className="contact-card">
-          <p className="eyebrow">Contact</p>
-          <h2>Let’s create something meaningful.</h2>
-          <p>
-            For bespoke pieces, tableware collections or natural fiber décor, tell us about your space and
-            the atmosphere you want to create.
-          </p>
-          <div className="actions">
-            <a className="btn primary" href="https://wa.me/233536939571" target="_blank" rel="noreferrer">WhatsApp</a>
-            <a className="btn secondary" href="mailto:contact@artysiahome.com">Email us</a>
-          </div>
-        </div>
-      </section>
-
-      <footer className="footer">
+      <footer>
         <img src="/ARTYSIA.png" alt="ARTYSIA" />
-        <div className="footer-socials" aria-label="ARTYSIA social platforms">
-          {socialLinks.map((link) => (
-            <a href={link.href} target="_blank" rel="noreferrer" key={link.name}>{link.name}</a>
-          ))}
-        </div>
-        <p>Premium natural objects for refined spaces.</p>
+        <div>{socials.map((s) => <a href={s.href} target="_blank" rel="noreferrer" key={s.name}>{s.name}</a>)}</div>
+        <p>© ARTYSIA. Natural objects for refined spaces.</p>
       </footer>
     </main>
   );
