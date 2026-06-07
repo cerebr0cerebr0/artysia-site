@@ -7,17 +7,31 @@ const socials = [
 ];
 
 const collections = [
-  { title: 'Tableware', image: '/tableware.jpg', text: 'Wooden bowls, trays and serving pieces crafted for refined tables.' },
-  { title: 'Decor', image: '/decor.jpg', text: 'Raffia objects and natural fiber pieces for calm, expressive interiors.' },
-  { title: 'Bespoke', image: '/interior.jpg', text: 'Custom creations for hotels, restaurants, residences and curated projects.' },
+  {
+    title: 'Tableware',
+    image: '/table-setting.png',
+    text: 'Bowls, plates, spoons and serving pieces shaped for quiet, refined tables.',
+  },
+  {
+    title: 'Statement Pieces',
+    image: '/carved-tray.png',
+    text: 'Hand-finished wooden pieces designed to bring warmth and presence to interiors.',
+  },
+  {
+    title: 'Bespoke Projects',
+    image: '/carved-bowl.png',
+    text: 'Custom pieces for homes, hotels, restaurants and curated hospitality projects.',
+  },
 ];
 
 function App() {
   return (
     <main className="site" id="top">
       <header className="header">
-        <a className="brand" href="#top"><img src="/ARTYSIA.png" alt="ARTYSIA" /></a>
-        <nav>
+        <a className="brand" href="#top" aria-label="ARTYSIA home">
+          <img src="/ARTYSIA.png" alt="ARTYSIA" />
+        </a>
+        <nav aria-label="Main navigation">
           <a href="#story">Story</a>
           <a href="#collections">Collections</a>
           <a href="#projects">Projects</a>
@@ -26,40 +40,41 @@ function App() {
       </header>
 
       <section className="hero" aria-label="ARTYSIA introduction">
-        <video className="hero-video" src="/artysia-hero.mp4" autoPlay muted loop playsInline />
-        <div className="hero-overlay" />
-        <div className="hero-content">
-          <img className="hero-logo" src="/ARTYSIA.png" alt="ARTYSIA" />
-          <p>Refined tableware, natural décor and bespoke creations.</p>
-          <h1>Crafted for spaces with soul.</h1>
-          <a href="#collections">Explore collection</a>
+        <img className="hero-image" src="/showcase-atelier.png" alt="ARTYSIA wooden tableware display" />
+        <div className="hero-shade" />
+        <div className="hero-panel">
+          <p className="eyebrow light">ARTYSIA HOME</p>
+          <h1>Wooden tableware and natural décor with soul.</h1>
+          <p className="hero-text">Refined objects for homes, hotels, restaurants and considered interiors.</p>
+          <a className="button light-button" href="#collections">Explore collection</a>
         </div>
       </section>
 
-      <section id="story" className="intro section">
-        <div>
-          <p className="eyebrow">ARTYSIA HOME</p>
-          <h2>Wooden tableware, raffia objects and natural fiber décor.</h2>
+      <section id="story" className="story section">
+        <div className="story-copy">
+          <p className="eyebrow">Our language</p>
+          <h2>Natural materials, quiet luxury, and pieces made to belong.</h2>
         </div>
-        <div className="intro-copy">
-          <p>We create warm, elegant and intentional pieces for homes, hotels, restaurants and interior projects — where natural materials become part of the atmosphere.</p>
-          <p>Our language is quiet, natural and refined: objects designed to belong in beautiful spaces without overpowering them.</p>
-        </div>
+        <p className="story-text">
+          ARTYSIA is a design house specializing in wooden tableware, raffia objects and natural fiber décor. Each piece is created to bring warmth, identity and understated elegance into refined spaces.
+        </p>
       </section>
 
-      <section className="editorial section">
-        <div className="editorial-image"><img src="/texture-wood.jpg" alt="Natural ARTYSIA material mood" /></div>
-        <div className="editorial-copy">
-          <p className="eyebrow">Nature refined</p>
-          <h2>Objects that feel quiet, grounded and considered.</h2>
-          <p>ARTYSIA is built around material honesty, soft textures and a timeless visual language.</p>
+      <section className="feature section">
+        <div className="feature-image tall">
+          <img src="/table-setting.png" alt="Wooden plate and cutlery by ARTYSIA" />
+        </div>
+        <div className="feature-copy">
+          <p className="eyebrow">Tableware</p>
+          <h2>Designed for tables that feel calm, warm and intentional.</h2>
+          <p>From everyday rituals to hospitality settings, ARTYSIA pieces bring natural texture and a grounded presence to the table.</p>
         </div>
       </section>
 
       <section id="collections" className="collections section">
         <div className="section-heading">
           <p className="eyebrow">Collections</p>
-          <h2>For refined natural spaces.</h2>
+          <h2>Objects with texture, presence and purpose.</h2>
         </div>
         <div className="collection-grid">
           {collections.map((item) => (
@@ -74,23 +89,24 @@ function App() {
         </div>
       </section>
 
-      <section id="projects" className="projects">
-        <div className="section projects-inner">
-          <p className="eyebrow">Hospitality & private projects</p>
-          <h2>Created for hotels, restaurants, interior designers and homes with character.</h2>
-          <a href="#contact">Start a bespoke project</a>
+      <section id="projects" className="wide-feature">
+        <img src="/cup-tray.png" alt="Wooden cup and tray by ARTYSIA" />
+        <div className="wide-content">
+          <p className="eyebrow light">Hospitality & private projects</p>
+          <h2>Created for spaces with character.</h2>
+          <p>Hotels, restaurants, interior designers and private residences can develop bespoke pieces or curated sets with ARTYSIA.</p>
+          <a className="button light-button" href="#contact">Start a project</a>
         </div>
       </section>
 
-      <section className="split section">
-        <div>
-          <p className="eyebrow">Process</p>
-          <h2>From mood to material, every piece is developed with intention.</h2>
+      <section className="feature reverse section">
+        <div className="feature-copy">
+          <p className="eyebrow">Details</p>
+          <h2>Wood grain, carved lines and the warmth of the hand.</h2>
+          <p>The beauty of each object comes from its material: the pattern of the wood, the softness of the finish and the quiet irregularities that make every piece feel alive.</p>
         </div>
-        <div className="steps">
-          <p><strong>01</strong> Share your space, mood and references.</p>
-          <p><strong>02</strong> We align dimensions, materials and finish.</p>
-          <p><strong>03</strong> ARTYSIA creates the piece or collection.</p>
+        <div className="feature-image">
+          <img src="/carved-bowl.png" alt="Carved wooden bowl by ARTYSIA" />
         </div>
       </section>
 
@@ -99,14 +115,16 @@ function App() {
         <h2>Looking for something personalized?</h2>
         <p>Tell us about your home, hospitality space or interior project.</p>
         <div className="contact-actions">
-          <a href="https://wa.me/233536939571" target="_blank" rel="noreferrer">WhatsApp</a>
-          <a href="mailto:contact@artysiahome.com">Email</a>
+          <a className="button" href="https://wa.me/233536939571" target="_blank" rel="noreferrer">WhatsApp</a>
+          <a className="button outline" href="mailto:contact@artysiahome.com">Email</a>
         </div>
       </section>
 
       <footer className="footer">
         <img src="/ARTYSIA.png" alt="ARTYSIA" />
-        <div>{socials.map((s) => <a key={s.name} href={s.href} target="_blank" rel="noreferrer">{s.name}</a>)}</div>
+        <div className="socials">
+          {socials.map((s) => <a key={s.name} href={s.href} target="_blank" rel="noreferrer">{s.name}</a>)}
+        </div>
         <p>© ARTYSIA — Natural objects for refined spaces.</p>
       </footer>
     </main>
