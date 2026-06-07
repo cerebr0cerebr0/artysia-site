@@ -6,3 +6,8 @@ body,
   width: 100%;
   min-height: 100%;
 }
+
+::selection {
+  background: #8c4632;
+  color: #fffaf2;
+}
