@@ -8,26 +8,32 @@ const socials = [
   { name: 'Facebook', href: 'https://www.facebook.com/share/18vY7otHsD/', icon: 'facebook' },
 ];
 
+const tableware = ['Bowls', 'Plates', 'Trays', 'Chopboards', 'Kitchen utensils', 'Spoons', 'Glassware', 'Resin & wood'];
+const decor = ['Bolga baskets', 'Planters', 'Decorative pots', 'Lamps & lighting'];
+const seasonal = ['Mother’s Day', 'Corporate gifts', 'Independence collection', 'Festive collection'];
+
 const collections = [
-  { title: 'Tableware', image: '/table-setting.png', text: 'Wooden bowls, plates, trays and serving pieces for composed tables.' },
-  { title: 'Decor', image: '/editorial-display.png', text: 'Natural fiber objects and warm sculptural details for refined interiors.' },
-  { title: 'Signature Pieces', image: '/signature-bowl.png', text: 'Expressive pieces made to become quiet focal points in a room.' },
+  { title: 'Tableware', image: '/table-setting.png', text: 'Bowls, plates, trays, chopboards and kitchen utensils designed for memorable tables.', items: tableware },
+  { title: 'Decor', image: '/editorial-display.png', text: 'Bolga baskets, planters, decorative pots and lighting for warm interiors.', items: decor },
+  { title: 'Signature Pieces', image: '/signature-bowl.png', text: 'The pieces that carry ARTYSIA’s identity most clearly: sculptural, grounded and distinctive.', items: ['Master bowls', 'Statement trays', 'Carved objects', 'Limited pieces'] },
+  { title: 'Seasonal Collections', image: '/tray-detail.png', text: 'Occasion-led pieces for gifting, celebrations, hospitality and curated moments.', items: seasonal },
 ];
 
 const journal = [
-  { title: 'The Art of Hosting', image: '/table-setting.png', text: 'Creating a table that feels warm, intentional and memorable.' },
-  { title: 'The Beauty of Natural Materials', image: '/tray-detail.png', text: 'Wood, raffia and natural fibers as a language of calm luxury.' },
-  { title: 'Behind the Craft', image: '/craft-cup.png', text: 'A closer look at texture, finish and the hand behind every piece.' },
+  { title: 'Raffia and Our Sourcing Philosophy', image: '/editorial-display.png', text: 'A note on transparency, materials and the natural fibers behind ARTYSIA objects.' },
+  { title: 'Behind the Scenes', image: '/craft-cup.png', text: 'From wood selection to carving, sanding, finishing and final presentation.' },
+  { title: 'Spaces We Admire', image: '/table-setting.png', text: 'Homes, restaurants and hotels where natural objects become part of the atmosphere.' },
+  { title: 'The ARTYSIA Edit', image: '/tray-detail.png', text: 'Seasonal selections, hosting ideas and signature combinations.' },
 ];
 
 const policies = {
   privacy: {
     title: 'Privacy Policy',
-    body: ['ARTYSIA respects your privacy and only collects information needed to respond to enquiries, manage communications and improve the website experience.', 'Information may include your name, email address, phone number, project details and messages submitted through contact links.', 'We do not sell personal information. Data is kept only for as long as necessary for communication, service delivery or legal requirements.'],
+    body: ['ARTYSIA respects your privacy and only collects information needed to respond to enquiries, manage communications and improve the website experience.', 'Information may include your name, email address, phone number, project details, uploaded references and messages submitted through contact or bespoke forms.', 'We do not sell personal information. Data is kept only for as long as necessary for communication, service delivery or legal requirements.'],
   },
   data: {
     title: 'Data Policy',
-    body: ['We use submitted information to understand your request, prepare project discussions and maintain professional communication.', 'Website analytics, cookies or third-party services may be used to improve performance and understand general visitor behavior.', 'You may request access, correction or deletion of your personal information by contacting ARTYSIA.'],
+    body: ['Submitted information is used to understand your request, prepare project discussions, respond to enquiries and maintain professional communication.', 'Website analytics, cookies or third-party services may be used to improve performance and understand general visitor behavior.', 'You may request access, correction or deletion of your personal information by contacting ARTYSIA.'],
   },
   terms: {
     title: 'Terms & Conditions',
@@ -51,7 +57,7 @@ function Header() {
       <Link className="brand" to="/"><img src="/ARTYSIA.png" alt="ARTYSIA" /></Link>
       <nav>
         <Link to="/collections">Collections</Link>
-        <Link to="/bespoke">Bespoke</Link>
+        <Link to="/bespoke">Create Your Own</Link>
         <Link to="/journal">Journal</Link>
         <Link to="/contact">Contact</Link>
       </nav>
@@ -63,13 +69,16 @@ function Footer() {
   const [modal, setModal] = useState(null);
   return (
     <footer className="footer">
-      <img src="/ARTYSIA.png" alt="ARTYSIA" />
+      <div className="footer-top">
+        <img src="/ARTYSIA.png" alt="ARTYSIA" />
+        <p>Wooden tableware, raffia objects and natural fiber décor for spaces with soul.</p>
+      </div>
       <div className="footer-grid">
-        <div><h4>Explore</h4><Link to="/collections">Collections</Link><Link to="/bespoke">Bespoke & Hospitality</Link><Link to="/journal">Journal</Link></div>
+        <div><h4>Explore</h4><Link to="/collections">Collections</Link><Link to="/collections">Signature Pieces</Link><Link to="/bespoke">Create Your Own Piece</Link><Link to="/journal">Journal</Link></div>
         <div><h4>Social</h4><div className="social-row">{socials.map((s) => <a key={s.name} href={s.href} target="_blank" rel="noreferrer" aria-label={s.name}><Icon type={s.icon} /></a>)}</div></div>
         <div><h4>Legal</h4>{Object.entries(policies).map(([key, item]) => <button key={key} onClick={() => setModal(item)}>{item.title}</button>)}</div>
       </div>
-      <p>© ARTYSIA — Natural objects for refined spaces.</p>
+      <p className="copyright">© ARTYSIA — All rights reserved.</p>
       {modal && <PolicyModal policy={modal} onClose={() => setModal(null)} />}
     </footer>
   );
@@ -98,7 +107,7 @@ function Home() {
           <img className="hero-logo" src="/ARTYSIA.png" alt="ARTYSIA" />
           <p>Refined tableware, natural décor and bespoke creations.</p>
           <h1>Crafted for spaces with soul.</h1>
-          <Link to="/collections">Explore collection</Link>
+          <div className="hero-actions"><Link to="/collections">Explore collections</Link><Link to="/bespoke">Create your own</Link></div>
         </div>
       </section>
       <section className="intro section compact">
@@ -106,30 +115,55 @@ function Home() {
         <div className="intro-copy"><p>ARTYSIA creates wooden tableware, raffia objects and natural fiber décor for homes, hotels, restaurants and interior projects.</p><Link className="text-link" to="/bespoke">Start a bespoke project</Link></div>
       </section>
       <section className="home-cards section">
-        {collections.map((item) => <Link to="/collections" className="home-card" key={item.title}><img src={item.image} alt={item.title} /><span>{item.title}</span></Link>)}
+        {collections.slice(0, 3).map((item) => <Link to="/collections" className="home-card" key={item.title}><img src={item.image} alt={item.title} /><span>{item.title}</span></Link>)}
+      </section>
+      <section className="cta-band section">
+        <p className="eyebrow">Bespoke</p>
+        <h2>Create Your Own Piece</h2>
+        <p>Share your vision. We make it real for your home, brand, hotel, restaurant or special occasion.</p>
+        <Link to="/bespoke">Start your project</Link>
       </section>
     </>
   );
 }
 
 function CollectionsPage() {
-  return <PageHero eyebrow="Collections" title="Objects for refined natural spaces." text="Explore tableware, décor and signature pieces designed around wood, texture and atmosphere." image="/editorial-display.png"><CollectionGrid /></PageHero>;
+  return <PageHero eyebrow="Collections" title="Objects for refined natural spaces." text="Explore tableware, décor, seasonal collections and signature pieces designed around wood, texture and atmosphere." image="/editorial-display.png"><CollectionGrid /></PageHero>;
 }
 
 function CollectionGrid() {
-  return <section className="collections section page-section"><div className="collection-grid">{collections.map((item) => <article className="collection-card" key={item.title}><img src={item.image} alt={item.title} /><div><h3>{item.title}</h3><p>{item.text}</p></div></article>)}</div></section>;
+  return <section className="collections section page-section"><div className="collection-grid">{collections.map((item) => <article className="collection-card" key={item.title}><img src={item.image} alt={item.title} /><div><h3>{item.title}</h3><p>{item.text}</p><ul>{item.items.map((entry) => <li key={entry}>{entry}</li>)}</ul></div></article>)}</div></section>;
 }
 
 function BespokePage() {
-  return <PageHero eyebrow="Bespoke & Hospitality" title="Created for hotels, restaurants and meaningful interiors." text="From mood to material, ARTYSIA develops pieces and collections with intention, scale and setting in mind." image="/tray-detail.png"><section className="split section page-section"><div><p className="eyebrow">Process</p><h2>From idea to object.</h2></div><div className="steps"><p><strong>01</strong> Share the space, mood and references.</p><p><strong>02</strong> Align material, dimensions and finish.</p><p><strong>03</strong> Develop the piece or collection.</p></div></section></PageHero>;
+  return <PageHero eyebrow="Bespoke" title="Create Your Own Piece." text="Share your idea. We make it real for you — from one meaningful object to a full collection for a space." image="/tray-detail.png"><BespokeForm /></PageHero>;
+}
+
+function BespokeForm() {
+  return (
+    <section className="bespoke section page-section">
+      <div className="split-head">
+        <p className="eyebrow">Process</p>
+        <h2>From your vision to an object with presence.</h2>
+      </div>
+      <form className="bespoke-form">
+        <label>For what occasion?<select><option>Home</option><option>Hotel</option><option>Restaurant</option><option>Wedding</option><option>Corporate gift</option><option>Other</option></select></label>
+        <label>Product category<select><option>Tableware</option><option>Decor</option><option>Furniture</option><option>Custom collection</option><option>Resin & wood</option></select></label>
+        <label>Your identity / project<textarea placeholder="Tell us about your home, brand, restaurant, hotel or occasion." /></label>
+        <label>Explain your idea<textarea placeholder="Shape, size, material, quantity, mood, deadline, colors, references…" /></label>
+        <label>Upload inspiration<input type="file" /></label>
+        <button type="button">Submit project enquiry</button>
+      </form>
+    </section>
+  );
 }
 
 function JournalPage() {
-  return <PageHero eyebrow="Journal" title="Notes on hosting, material and beautiful spaces." text="A quiet editorial space for the ARTYSIA universe." image="/craft-cup.png"><section className="journal-grid section page-section">{journal.map((post) => <article className="journal-card" key={post.title}><img src={post.image} alt={post.title} /><div><p className="eyebrow">Journal</p><h3>{post.title}</h3><p>{post.text}</p></div></article>)}</section></PageHero>;
+  return <PageHero eyebrow="Journal" title="Notes on sourcing, making and beautiful spaces." text="A quiet editorial space for the ARTYSIA universe." image="/craft-cup.png"><section className="journal-grid section page-section">{journal.map((post) => <article className="journal-card" key={post.title}><img src={post.image} alt={post.title} /><div><p className="eyebrow">Journal</p><h3>{post.title}</h3><p>{post.text}</p></div></article>)}</section></PageHero>;
 }
 
 function ContactPage() {
-  return <PageHero eyebrow="Contact" title="Tell us about your space or project." text="For enquiries, collaborations, hospitality projects and bespoke pieces." image="/signature-bowl.png"><section className="contact section page-section"><div className="contact-actions"><a href="https://wa.me/233536939571" target="_blank" rel="noreferrer">WhatsApp</a><a href="mailto:contact@artysiahome.com">Email</a></div></section></PageHero>;
+  return <PageHero eyebrow="Contact" title="Tell us about your space or project." text="For enquiries, collaborations, hospitality projects and bespoke pieces." image="/signature-bowl.png"><section className="contact section page-section"><div className="contact-actions"><a href="https://wa.me/233536939571" target="_blank" rel="noreferrer">WhatsApp</a><a href="mailto:contact@artysiahome.com">Email</a></div><div className="contact-socials"><p className="eyebrow">Follow ARTYSIA</p><div className="social-row large">{socials.map((s) => <a key={s.name} href={s.href} target="_blank" rel="noreferrer" aria-label={s.name}><Icon type={s.icon} /></a>)}</div></div></section></PageHero>;
 }
 
 function PageHero({ eyebrow, title, text, image, children }) {
