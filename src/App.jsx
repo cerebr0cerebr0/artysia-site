@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import './App.css';
 
 const socials = [
@@ -184,6 +185,7 @@ function App() {
         </Routes>
         <Footer />
       </main>
+      <Analytics />
     </BrowserRouter>
   );
 }
